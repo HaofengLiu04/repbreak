@@ -1,0 +1,401 @@
+:root {
+  --bg: #eef1e8;
+  --bg-accent: #dbe3d2;
+  --panel: rgba(255, 255, 255, 0.82);
+  --panel-border: rgba(24, 41, 26, 0.12);
+  --text: #17201b;
+  --muted: #5c6a60;
+  --accent: #2f5d49;
+  --accent-soft: #dce9e2;
+  --warning: #b26239;
+  --shadow: 0 20px 60px rgba(28, 40, 30, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Avenir Next", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.72), transparent 28%),
+    linear-gradient(160deg, var(--bg) 0%, var(--bg-accent) 100%);
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.page-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 20px 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr 1fr;
+  gap: 20px;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 32px;
+  margin-bottom: 20px;
+}
+
+.eyebrow,
+.section-kicker,
+.content-overline,
+.principle-label,
+.metric-label,
+.control-label {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.73rem;
+  color: var(--muted);
+}
+
+.hero h1,
+.panel h2,
+.content-card h3,
+.session-copy h3,
+.alert-card h2 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+}
+
+.hero-copy {
+  max-width: 760px;
+  margin: 14px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.controls-panel,
+.session-panel,
+.content-panel {
+  padding: 24px;
+}
+
+.panel-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.control-group + .control-group {
+  margin-top: 22px;
+}
+
+.preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.preset,
+.mode-select,
+.primary-button,
+.game-button,
+.reveal-button {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.preset {
+  padding: 12px 16px;
+  background: #f3f5ef;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.preset.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.mode-select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px 16px;
+  background: #f8faf6;
+  border-color: rgba(24, 41, 26, 0.1);
+}
+
+.principles {
+  margin-top: 28px;
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.principles p {
+  margin: 6px 0 0;
+  line-height: 1.55;
+}
+
+.status-row,
+.metrics-row,
+.content-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.phase-pill,
+.mini-stat,
+.content-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+}
+
+.phase-pill,
+.content-tag {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.mini-stat {
+  background: rgba(47, 93, 73, 0.08);
+  color: var(--muted);
+}
+
+.countdown {
+  width: min(280px, 100%);
+  aspect-ratio: 1;
+  margin: 24px auto;
+  padding: 16px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) var(--progress), rgba(47, 93, 73, 0.08) 0deg);
+  display: grid;
+  place-items: center;
+}
+
+.countdown-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.count-number {
+  font-size: clamp(3.4rem, 7vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.count-label {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.session-copy {
+  text-align: center;
+}
+
+.session-copy p {
+  margin: 10px auto 0;
+  max-width: 34ch;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.primary-button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px 20px;
+  background: var(--text);
+  color: #fff;
+  cursor: pointer;
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.metrics-row {
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.metric-card {
+  flex: 1 1 160px;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.metric-card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.content-card {
+  min-height: 420px;
+  padding: 26px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 247, 242, 0.96));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-card p {
+  line-height: 1.72;
+  color: var(--muted);
+}
+
+.content-card .reading {
+  font-family: "Literata", Georgia, serif;
+  font-size: 1.02rem;
+}
+
+.content-card .prompt {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.hint-text {
+  margin-top: 16px;
+  font-size: 0.92rem;
+}
+
+.game-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.game-score {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.game-chip {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(47, 93, 73, 0.08);
+  color: var(--text);
+}
+
+.game-button,
+.reveal-button {
+  width: fit-content;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.answer-box,
+.focus-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(47, 93, 73, 0.08);
+}
+
+.focus-box {
+  background: rgba(178, 98, 57, 0.12);
+}
+
+.alert-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(14, 21, 17, 0.46);
+}
+
+.alert-card {
+  width: min(480px, 100%);
+  padding: 28px;
+}
+
+.alert-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}
+
+.preset:hover,
+.primary-button:hover,
+.game-button:hover,
+.reveal-button:hover,
+.mode-select:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1020px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-card {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 20px 14px 32px;
+  }
+
+  .hero,
+  .controls-panel,
+  .session-panel,
+  .content-panel,
+  .alert-card {
+    padding: 20px;
+  }
+
+  .status-row,
+  .content-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .countdown {
+    width: min(240px, 100%);
+  }
+}

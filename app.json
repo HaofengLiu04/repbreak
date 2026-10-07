@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Rep Break",
+    "slug": "rep-break",
+    "scheme": "repbreak",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.repbreak"
+    },
+    "android": {
+      "package": "com.example.repbreak"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
+      ],
+      "expo-image-picker",
+      "expo-status-bar"
+    ]
+  }
+}

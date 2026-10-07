@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rep Break Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero panel">
+        <p class="eyebrow">Gym Rest Timer Prototype</p>
+        <h1>Rep Break</h1>
+        <p class="hero-copy">
+          A timer-first rest companion that gives you one tiny distraction between sets,
+          then cuts it off and pulls you back into the workout.
+        </p>
+      </header>
+
+      <main class="grid">
+        <section class="panel controls-panel" aria-labelledby="controls-title">
+          <div class="panel-heading">
+            <p class="section-kicker">Setup</p>
+            <h2 id="controls-title">Rest and content</h2>
+          </div>
+
+          <div class="control-group">
+            <span class="control-label">Rest preset</span>
+            <div class="preset-row" id="presetRow" role="group" aria-label="Rest presets">
+              <button class="preset active" data-seconds="30">30s</button>
+              <button class="preset" data-seconds="45">45s</button>
+              <button class="preset" data-seconds="60">60s</button>
+              <button class="preset" data-seconds="90">90s</button>
+              <button class="preset" data-seconds="120">120s</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="modeSelect">Micro-content</label>
+            <select id="modeSelect" class="mode-select">
+              <option value="random">Random mix</option>
+              <option value="fact">Fun fact</option>
+              <option value="read">Short read</option>
+              <option value="teaser">Brain teaser</option>
+              <option value="game">Tap game</option>
+            </select>
+          </div>
+
+          <div class="principles">
+            <div>
+              <span class="principle-label">Rule</span>
+              <p>Only one item per rest period.</p>
+            </div>
+            <div>
+              <span class="principle-label">Focus window</span>
+              <p id="focusWindowLabel">Final 6 seconds are reserved for reset.</p>
+            </div>
+            <div>
+              <span class="principle-label">End behavior</span>
+              <p>Overlay, vibration, and a short alarm tone.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel session-panel" aria-labelledby="session-title">
+          <div class="panel-heading">
+            <p class="section-kicker">Session</p>
+            <h2 id="session-title">Between sets</h2>
+          </div>
+
+          <div class="status-row">
+            <span class="phase-pill" id="phasePill">Ready</span>
+            <span class="mini-stat" id="setCounter">Sets logged: 0</span>
+          </div>
+
+          <div class="countdown" id="countdownRing" style="--progress: 0deg">
+            <div class="countdown-inner">
+              <span class="count-number" id="timeRemaining">30</span>
+              <span class="count-label">seconds</span>
+            </div>
+          </div>
+
+          <div class="session-copy">
+            <h3 id="sessionHeadline">Do your first set, then start rest.</h3>
+            <p id="sessionSubcopy">
+              The distraction runs for most of the rest, then the final seconds switch
+              you back into workout mode.
+            </p>
+          </div>
+
+          <button class="primary-button" id="primaryAction">I finished set 1</button>
+
+          <div class="metrics-row">
+            <article class="metric-card">
+              <span class="metric-label">Selected rest</span>
+              <strong id="selectedRestValue">30s</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Mode</span>
+              <strong id="selectedModeValue">Random mix</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Current phase</span>
+              <strong id="phaseDetail">Waiting for set</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel content-panel" aria-labelledby="content-title">
+          <div class="panel-heading content-heading">
+            <div>
+              <p class="section-kicker">Micro Entertainment</p>
+              <h2 id="content-title">One item at a time</h2>
+            </div>
+            <span class="content-tag" id="contentTag">Preview</span>
+          </div>
+
+          <div class="content-card" id="contentCard">
+            <p class="content-overline">How it behaves</p>
+            <h3>Built for the dead zone between sets</h3>
+            <p>
+              Pick a rest length, choose a content type, and tap when a set ends. This
+              prototype shows one short item, then locks back onto the workout when the
+              timer expires.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="alert-overlay hidden" id="alertOverlay" aria-live="assertive">
+      <div class="alert-card panel">
+        <p class="section-kicker">Rest complete</p>
+        <h2>Back to the workout</h2>
+        <p id="alertMessage">Time to start your next set.</p>
+        <button class="primary-button" id="dismissAlert">Dismiss and lift</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
